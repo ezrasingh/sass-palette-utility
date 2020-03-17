@@ -2,7 +2,10 @@
   "name": "sass-palette-utility",
   "version": "1.0.0",
   "description": "A utility for organizing UI palettes",
-  "main": "index.js",
+  "repository": {
+		"type": "git",
+		"url": "https://github.com/EzraSingh/sass-palette-utility"
+	},
   "scripts": {
     "start": "webpack-dev-server --mode development",
     "build": "webpack --mode production",
