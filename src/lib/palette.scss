@@ -2,41 +2,81 @@
 * Returns a map of colors for the UI's palette
 */
 @function new-palette(
-	$darkLayout: #272838,
-	$lightLayout: #fffafa,
-	$primary: #8884ff,
-	$secondary: #ff88dc,
+	$dark: #272838,
+	$light: #fffafa,
+	$brand: #8884ff,
+	$interactive: #ff88dc,
 	$contrast: 10
 ) {
     $swatch: (
-			'primary': (
-					'base': $primary,
-					'light': lighten($primary, $contrast),
-					'dark': darken($primary, $contrast)
+			'brand': (
+					'lighter': lighten($brand, $contrast * 2),
+					'light': lighten($brand, $contrast),
+					'base': $brand,
+					'dark': darken($brand, $contrast),
+					'darker': darken($brand, $contrast * 2)
 			),
-			'secondary': (
-					'base': $secondary,
-					'light': lighten($secondary, $contrast),
-					'dark': darken($secondary, $contrast)
+			'interactive': (
+					'lighter': lighten($interactive, $contrast * 2),
+					'light': lighten($interactive, $contrast),
+					'base': $interactive,
+					'dark': darken($interactive, $contrast),
+					'darker': darken($interactive, $contrast * 2)
 			),
 			'accent': (
-				'light': $darkLayout,
-				'dark': $lightLayout
+				'light': $dark,
+				'dark': $light
 			),
 			'layout': (
-					'light': $lightLayout,
-					'dark': $darkLayout
+					'light': $light,
+					'dark': $dark
 			)
 		);
     @return $swatch;
 }
 
 /**
-* Returns opaque color from palette
+* Returns color from palette swatch
 */
 @function ui-color($palette, $swatch-key, $color-key: 'base') {
 	$swatch: map-get($palette, $swatch-key);
 	$color: map-get($swatch, $color-key);
+	@return $color;
+}
+
+/**
+* Returns light color from palette
+*/
+@function ui-color-light($palette, $swatch-key) {
+	$swatch: map-get($palette, $swatch-key);
+	$color: map-get($swatch, 'light');
+	@return $color;
+}
+
+/**
+* Returns lighter color from palette
+*/
+@function ui-color-lighter($palette, $swatch-key) {
+	$swatch: map-get($palette, $swatch-key);
+	$color: map-get($swatch, 'lighter');
+	@return $color;
+}
+
+/**
+* Returns dark color from palette
+*/
+@function ui-color-dark($palette, $swatch-key) {
+	$swatch: map-get($palette, $swatch-key);
+	$color: map-get($swatch, 'dark');
+	@return $color;
+}
+
+/**
+* Returns darker color from palette
+*/
+@function ui-color-darker($palette, $swatch-key) {
+	$swatch: map-get($palette, $swatch-key);
+	$color: map-get($swatch, 'darker');
 	@return $color;
 }
 
