@@ -2,7 +2,9 @@
 
 > Manage UX themes with *blazing* ease
 
-![screenshot](assets/screenshot.png "Screenshot")
+[![screenshot](assets/screenshot.png "Screenshot")](https://sass-palette-utility.netlify.com/)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/bd9f60d2-8bcb-433f-becf-b34800741275/deploy-status)](https://app.netlify.com/sites/sass-palette-utility/deploys)
 
 ## Usage
 
