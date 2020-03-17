@@ -1,0 +1,68 @@
+/**
+* Returns a map of colors for the UI's palette
+*/
+@function new-palette(
+	$darkLayout: #272838,
+	$lightLayout: #fffafa,
+	$primary: #8884ff,
+	$secondary: #ff88dc,
+	$contrast: 10
+) {
+    $swatch: (
+			'primary': (
+					'base': $primary,
+					'light': lighten($primary, $contrast),
+					'dark': darken($primary, $contrast)
+			),
+			'secondary': (
+					'base': $secondary,
+					'light': lighten($secondary, $contrast),
+					'dark': darken($secondary, $contrast)
+			),
+			'accent': (
+				'light': $darkLayout,
+				'dark': $lightLayout
+			),
+			'layout': (
+					'light': $lightLayout,
+					'dark': $darkLayout
+			)
+		);
+    @return $swatch;
+}
+
+/**
+* Returns opaque color from palette
+*/
+@function ui-color($palette, $swatch-key, $color-key: 'base') {
+	$swatch: map-get($palette, $swatch-key);
+	$color: map-get($swatch, $color-key);
+	@return $color;
+}
+
+/**
+* Returns layout color from palette
+*/
+@function ui-layout($palette, $color-key) {
+	$layout: map-get($palette, 'layout');
+	$color: map-get($layout, $color-key);
+	@return $color;
+}
+
+/**
+* Returns accent layout color from palette
+*/
+@function ui-accent($palette, $color-key) {
+	$layout: map-get($palette, 'accent');
+	$color: map-get($layout, $color-key);
+	@return $color;
+}
+
+/**
+* Returns opaque color from palette
+*/
+@function ui-alpha($palette, $swatch-key, $color-key: 'base', $alpha: 1.0) {
+    $swatch: map-get($palette, $swatch-key);
+    $color: map-get($swatch, $color-key);
+    @return rgba($color, $alpha);
+}
