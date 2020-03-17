@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const APP_PATH = path.resolve(__dirname, 'src', 'app');
+const APP_PATH = path.resolve(__dirname, 'app');
 
 module.exports = {
   entry: path.join(APP_PATH, 'main.js'),
@@ -16,6 +16,11 @@ module.exports = {
 				use: [ 'style-loader', 'css-loader', 'sass-loader' ]
 			}
 		]
+	},
+	resolve: {
+		alias: {
+			lib: path.resolve(__dirname, 'lib')
+		}
 	},
   plugins: [
     new HtmlWebpackPlugin({
