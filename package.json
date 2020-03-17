@@ -5,13 +5,15 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development",
-    "build:demo": "webpack --mode production"
+    "build": "webpack --mode production",
+    "staging": "serve public"
   },
   "author": "Ezra Singh",
   "license": "MIT",
   "devDependencies": {
     "css-loader": "^3.4.2",
     "html-webpack-plugin": "^3.2.0",
+    "serve": "^11.3.0",
     "style-loader": "^1.1.3",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
