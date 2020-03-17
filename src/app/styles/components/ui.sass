@@ -1,0 +1,81 @@
+
+.ui
+	&__header
+		text-align: center
+		line-height: 1.2
+		letter-spacing: 2px
+		color: ui-layout($palette, "light")
+		h3
+			font-size: 2em
+
+	&__container
+		flex: 1 0
+		display: flex
+		justify-content: center
+		align-items: center
+		flex-direction: column
+
+	&__palette
+		padding: 1em
+		width: calc(80% - 2em)
+		+desktop
+			width: calc(50% - 4em)
+
+	&__swatch
+		padding: 1em
+		list-style: none
+		border: 1px solid
+		border-radius: 16px
+		+theme("light")
+			background: ui-layout($palette, 'light')
+			border-color: ui-accent($palette, 'light')
+		+theme("dark")
+			background: ui-layout($palette, 'dark')
+			border-color: ui-accent($palette, 'dark')
+		&--item
+			height: 3rem
+			margin: 1em auto
+			border-radius: 8px
+			&:nth-child(1)
+				background: ui-color($palette, 'brand')
+			&:nth-child(2)
+				+theme("light")
+					background: ui-color-dark($palette, 'brand')
+				+theme("dark")
+					background: ui-color-light($palette, 'brand')
+			&:nth-child(3)
+				+theme("light")
+					background: ui-color-dark($palette, 'interactive')
+				+theme("dark")
+					background: ui-color-light($palette, 'interactive')
+			&:nth-child(4)
+				+theme("light")
+					background: ui-accent($palette, 'light')
+				+theme("dark")
+					background: ui-accent($palette, 'dark')
+
+	&__btn
+		font-family: inherit
+		font-weight: bolder
+		color: ui-color-lighter($palette, 'interactive')
+		background: ui-color($palette, 'interactive')
+		border: none
+		padding: 0.5em
+		margin: 0.5em 0
+		line-height: 1.2
+		font-size: 2rem
+		cursor: pointer
+		transition: 0.25s linear
+		outline: none
+		border-style: solid
+		border-width: 0 4px 4px 0
+		border-color: ui-color-dark($palette, 'interactive')
+		&:hover
+			background: ui-color-light($palette, 'interactive')
+			border-color: ui-color-dark($palette, 'interactive')
+		&:focus, &:active
+			color: ui-color-darker($palette, 'interactive')
+			border-color: ui-color-dark($palette, 'interactive')
+		&.is-fluid
+			position: relative
+			width: 100%

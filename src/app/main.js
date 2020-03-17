@@ -1,4 +1,4 @@
-require('./style.sass')
+require('./styles/core.sass')
 
 const appRoot = document.querySelector('.app')
 const toggleBtn = document.querySelector('#toggle-btn')
